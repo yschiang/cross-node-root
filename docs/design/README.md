@@ -1,6 +1,20 @@
 # 設計文件
 
-本目錄的設計文件與 `docs/adr/` 從 gigaxfer 原樣複製（commit `4e9cba4`），不改寫。內文提到的 `docs/spec.md` 章節，現在對應 `openspec/specs/` 的能力規格，對照見 [匯入紀錄](../research/2026-09-28-import-from-gigaxfer.md)。
+本目錄的設計文件與 `docs/adr/` 從 gigaxfer 原樣複製（commit `4e9cba4`），不改寫。這就是本專案沿用的高層設計：
+
+| 文件 | 內容 |
+| --- | --- |
+| [網頁版](https://yschiang.github.io/cross-node-root/)（[原始檔](system-design-v2.html)） | system-design.md 的網頁版，最好先看這份；由 `.github/workflows/pages.yml` 發布到 GitHub Pages |
+| [system-design.md](system-design.md) | 系統設計：設計目標與量測、元件、資料流、故障處理 |
+| [design-decisions.md](design-decisions.md) | System Design 決策紀錄（D1～D57） |
+| [domain-decisions.md](domain-decisions.md) | Spec v0.3 的領域決策紀錄 |
+| [monitoring.md](monitoring.md) | Observability：指標與門檻 |
+| [traceability.md](traceability.md) | Requirement → Design → Test 對照 |
+| [ADR-0001](../adr/0001-source-owned-obligation-and-clock.md) | Replication obligation 由 Source Node 擁有，時戳以 Source Node 時鐘為準 |
+| [ADR-0002](../adr/0002-target-pull-over-http.md) | 傳輸採 Target pull over HTTP，Target 端無持久狀態 |
+| [ADR-0003](../adr/0003-git-as-control-plane.md) | 沒有 Control Plane process：git repo 為設定真相 |
+
+gigaxfer 另有較舊的渲染版 `system-design.html`，沒有複製。內文提到的 `docs/spec.md` 章節，現在對應 [SA 輸入](../research/2026-09-28-import/README.md) 裡的能力，對照見 [匯入紀錄](../research/2026-09-28-import-from-gigaxfer.md)。
 
 gigaxfer 的 PR #11（設計裁定 D58）尚未合併，這裡不含它的修改。
 
