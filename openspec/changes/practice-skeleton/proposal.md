@@ -52,10 +52,10 @@ root repo `cross-node-root`：只有本 change 的文件，不改 root 的 `AGEN
 | Q-2 | ~~程式 repo 的 `AGENTS.md` 用哪份內容起頭~~ **已決定：root 的版本（`AGENTS.md` blob `c93055be4c32`），只改兩處：scope 表換成程式 repo 的 Java package，刪掉「本 repo 是 root repo」的說明**。這偏離 PD-05（採 gigaxfer 工作目錄的 `AGENTS.md`）；練習只記在這裡，不改 main 的決策紀錄，正式走時要另立 PD 取代 PD-05 的這一部分 | — | Project Lead 回答「a」（2026-09-29），選項 A 為「root 的版本，改 scope 表與 root 說明兩處」，否決 B「gigaxfer 新版改三處加 scope 表」與 C「PD-05 釘的舊版」 |
 | Q-3 | ~~commit 訊息檢查（hook、CI job）屬不屬於本 Feature~~ **已決定：不屬於**（隨 Q-1 選 A 否決 C）；要做時另開 Feature 以 MODIFIED 修改 `engineering-baseline` | — | 同 Q-1 |
 | Q-4 | ~~程式 repo 是 private，GitHub 無法強制必要 check（研究 F2）；必要 check 是否只由流程判定~~ **已決定：把程式 repo 改成 public，以 `main` 的 branch protection 強制必要 checks**（EB-02） | — | Project Lead 回答「B」（2026-09-29），選項 B 為「把服務 repo 改成 public，打開 branch protection 由 GitHub 強制」，否決 A「由流程判定」與 C「升級 GitHub Pro」 |
-| Q-6 | 程式 repo 改成 public 由誰、何時執行：改可見度是對外且難收回的操作，不在本練習的授權內 | 否：擋 EB-02 的實作與驗收，不擋 Design | Project Lead |
+| Q-6 | ~~程式 repo 改成 public 由誰、何時執行~~ **已決定：Project Lead 本人在開工確認前執行**，列為交接包的依賴；Design 不必等。改可見度會動到正式的程式 repo，不限於本練習 | 否：擋 EB-02 的實作與驗收，不擋 Design | Project Lead 回答「A」（2026-09-29），選項 A 為「你在開工確認前自己改，記成交接包的依賴」，否決 B「現在授權 agent 改」與 C「開工確認時授權 Implementer 改」 |
 | Q-5 | 決策紀錄沒有依 loop-engineering D63 記下「確認 roadmap 並選定 #1」（研究 F12）；本練習以 Project Lead 2026-09-29 的指示視為選定 | 否 | Project Lead |
 
-依賴：無上游 Feature。需要程式 repo 的 GitHub Actions 可用；EB-02 需要程式 repo 先改成 public 才能設 branch protection（Q-6）。
+依賴：無上游 Feature。需要程式 repo 的 GitHub Actions 可用；EB-02 需要程式 repo 先改成 public 才能設 branch protection，由 Project Lead 在開工確認前執行（Q-6）。
 
 ## SA 確認
 
