@@ -8,7 +8,7 @@
 
 ## What Changes
 
-**提案，待 Project Lead 談定範圍。**
+範圍已由 Project Lead 談定（Q-1）。
 
 程式 repo `cross-node-file-transfer`：
 
@@ -20,6 +20,7 @@ root repo `cross-node-root`：只有本 change 的文件，不改 root 的 `AGEN
 
 ### 不做
 
+- commit 訊息檢查（hook、CI job）：不在本 Feature（Q-3）。
 - 任何產品行為：寫入、Finalize、ingest、同步、HTTP 端點、DB schema，都屬之後的 Feature。
 - #2 用不到的模組（sync-service、library starter、cli）：到用得到的 Feature 再建。
 - Oracle Free 的 CI job：第一個用到 DB 的 Feature 再加。
@@ -46,9 +47,9 @@ root repo `cross-node-root`：只有本 change 的文件，不改 root 的 `AGEN
 
 | ID | 問題 | 是否阻擋 Design | 決策者 |
 | --- | --- | --- | --- |
-| Q-1 | 範圍：上面「What Changes」與「不做」 | 是 | Project Lead |
+| Q-1 | ~~範圍：上面「What Changes」與「不做」~~ **已決定：照提案，工程規則放在程式 repo 自己的 `AGENTS.md`，root 只放本 change 的文件；commit 訊息檢查不加進範圍** | — | Project Lead 回答「A」（2026-09-29），選項 A 為「照提案；工程規則放進程式 repo，單獨 clone 也讀得到」，否決 B「規則只放 root」與 C「範圍加上 commit 訊息檢查」 |
 | Q-2 | 程式 repo 的 `AGENTS.md` 用哪份內容起頭：root 的版本（含 Commit 訊息規範，研究 F3）、gigaxfer 新版（F5 `b4ea97e5…`），或 PD-05 釘的舊版（`f69d669a…`） | 是：決定 EB 工程規則的內容 | Project Lead |
-| Q-3 | commit 訊息檢查（hook、CI job）屬不屬於本 Feature（研究 U2） | 是：影響必要 checks 的集合 | Project Lead |
+| Q-3 | ~~commit 訊息檢查（hook、CI job）屬不屬於本 Feature~~ **已決定：不屬於**（隨 Q-1 選 A 否決 C）；要做時另開 Feature 以 MODIFIED 修改 `engineering-baseline` | — | 同 Q-1 |
 | Q-4 | 程式 repo 是 private，GitHub 無法強制必要 check（研究 F2）；必要 check 是否只由流程判定 | 否：影響驗收寫法，不影響設計 | Project Lead |
 | Q-5 | 決策紀錄沒有依 loop-engineering D63 記下「確認 roadmap 並選定 #1」（研究 F12）；本練習以 Project Lead 2026-09-29 的指示視為選定 | 否 | Project Lead |
 
