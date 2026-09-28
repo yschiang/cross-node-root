@@ -1,0 +1,7 @@
+# 本產品的服務 repo 清單（loop-engineering D61）。執行 scripts/sync-repos 依清單拉進 repos/。
+repos:
+  - name: cross-node-file-transfer
+    url: https://github.com/yschiang/cross-node-file-transfer.git
+    branch: main
+    path: repos/cross-node-file-transfer
+    purpose: 程式：core library 與 sync service

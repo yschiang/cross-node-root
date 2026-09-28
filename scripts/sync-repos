@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Clone or update the service repos listed in repos.yaml (loop-engineering D61).
+
+Missing repos are cloned; clean ones are fast-forwarded; repos with local changes are left alone and reported.
+Run from anywhere: scripts/sync-repos. Self-check: scripts/sync-repos --selftest.
+"""
+import pathlib
+import subprocess
+import sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+FIELDS = ('name', 'url', 'branch', 'path', 'purpose')
+
+
+def parse(text):
+    """Parse the fixed repos.yaml shape: a `repos:` list of flat `key: value` entries."""
+    repos, cur = [], None
+    for raw in text.splitlines():
+        line = raw.split('#', 1)[0].rstrip() if not raw.lstrip().startswith(('url:', '- url:')) else raw.rstrip()
+        if not line.strip() or line.strip() == 'repos:':
+            continue
+        item = line.strip()
+        if item.startswith('- '):
+            cur = {}
+            repos.append(cur)
+            item = item[2:]
+        key, _, value = item.partition(':')
+        if cur is None or key.strip() not in FIELDS:
+            raise ValueError(f'unexpected line in repos.yaml: {raw!r}')
+        cur[key.strip()] = value.strip()
+    for r in repos:
+        missing = [f for f in ('name', 'url', 'branch', 'path') if not r.get(f)]
+        if missing:
+            raise ValueError(f'repo {r.get("name", "?")} missing {missing}')
+    return repos
+
+
+def git(*args, cwd=None):
+    return subprocess.run(['git', *args], cwd=cwd, capture_output=True, text=True)
+
+
+def sync(repo):
+    path = ROOT / repo['path']
+    if not path.exists():
+        r = git('clone', '--branch', repo['branch'], repo['url'], str(path))
+        return ('cloned' if r.returncode == 0 else 'FAILED clone: ' + r.stderr.strip()), r.returncode == 0
+    if git('status', '--porcelain', cwd=path).stdout.strip():
+        return 'skipped: local changes', True
+    r = git('pull', '--ff-only', 'origin', repo['branch'], cwd=path)
+    return ('updated' if r.returncode == 0 else 'FAILED pull: ' + r.stderr.strip()), r.returncode == 0
+
+
+def selftest():
+    sample = 'repos:\n  - name: a\n    url: https://x/a.git\n    branch: main\n    path: repos/a\n    purpose: p # note\n'
+    assert parse(sample) == [{'name': 'a', 'url': 'https://x/a.git', 'branch': 'main', 'path': 'repos/a', 'purpose': 'p'}]
+    try:
+        parse('repos:\n  - name: b\n')
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('missing fields must fail')
+    print('selftest ok')
+
+
+def main():
+    if sys.argv[1:] == ['--selftest']:
+        return selftest()
+    ok = True
+    for repo in parse((ROOT / 'repos.yaml').read_text(encoding='utf-8')):
+        result, good = sync(repo)
+        ok &= good
+        print(f"{repo['name']}: {result}")
+    sys.exit(0 if ok else 1)
+
+
+if __name__ == '__main__':
+    main()

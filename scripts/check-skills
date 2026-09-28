@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Check that the skills and tools this project's workflow uses are installed (see README「怎麼開始」).
+# A skill counts as installed when <dir>/<name>/SKILL.md resolves in any user skill directory.
+set -u
+DIRS=("$HOME/.claude/skills" "$HOME/.agents/skills" "$HOME/.codex/skills")
+SKILLS=(project-lead research-codebase grill-with-docs grilling domain-modeling
+        openspec-new-change openspec-propose openspec-apply-change openspec-archive-change)
+missing=0
+for s in "${SKILLS[@]}"; do
+  found=""
+  for d in "${DIRS[@]}"; do [ -f "$d/$s/SKILL.md" ] && found="$d" && break; done
+  if [ -n "$found" ]; then echo "ok       $s  ($found)"; else echo "MISSING  $s"; missing=$((missing+1)); fi
+done
+# Superpowers counts as installed when its TDD skill is linked (loop-engineering setup.sh) or Claude Code
+# reports its plugin enabled at user scope.
+sp=""
+for d in "${DIRS[@]}"; do [ -f "$d/test-driven-development/SKILL.md" ] && sp="$d" && break; done
+if [ -z "$sp" ] && command -v claude >/dev/null 2>&1 && (cd "$HOME" && claude plugin list --json 2>/dev/null) \
+     | python3 -c 'import json,sys; sys.exit(0 if any(p["id"].startswith("superpowers@") and p.get("enabled") for p in json.load(sys.stdin)) else 1)' 2>/dev/null; then
+  sp="Claude Code plugin"
+fi
+if [ -n "$sp" ]; then echo "ok       superpowers  ($sp)"; else echo "MISSING  superpowers"; missing=$((missing+1)); fi
+if command -v openspec >/dev/null 2>&1; then echo "ok       openspec CLI $(openspec --version 2>/dev/null)"; else echo "MISSING  openspec CLI"; missing=$((missing+1)); fi
+[ "$missing" -eq 0 ] && echo "all present" || echo "$missing missing"
+exit "$missing"
