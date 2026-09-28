@@ -1,5 +1,9 @@
 """Import gigaxfer spec.md (origin/main) into OpenSpec capability specs for cross-node-file-transfer.
 
+One-time record of the 2026-09-28 import. Do not re-run: per PD-09 the capability files were later
+moved to docs/research/2026-09-28-import/specs/ as SA input, and openspec/specs/ holds only
+implemented behaviour.
+
 Verbatim move: requirement bodies are copied as-is; only headings are reformatted for OpenSpec.
 Scenarios come from spec §19 (T01-T32) and the AC tables, attached per docs/design/traceability.md.
 """

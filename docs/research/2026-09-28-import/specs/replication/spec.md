@@ -4,7 +4,7 @@
 
 跨 Node 的非同步複製、同步義務與其狀態。
 
-原 spec §4 要求的結果（見 [系統能力](../../../docs/project-intent.md#系統能力原-spec-4)）：依固定同步對象執行非同步傳輸及發布。
+原 spec §4 要求的結果（見 [系統能力](../../../../project-intent.md#系統能力原-spec-4)）：依固定同步對象執行非同步傳輸及發布。
 
 來源：gigaxfer `docs/spec.md` v0.3 §7、§14（commit `4e9cba4`）。需求 ID 沿用原文；Scenario 依 `docs/design/traceability.md` 掛上。T 開頭的 Scenario 取自原 §19，共通執行條件見 core-guarantees 的 DG-06。
 

@@ -4,7 +4,7 @@
 
 獨立於任務紀錄，找出缺失的義務與不一致並修復。
 
-原 spec §4 要求的結果（見 [系統能力](../../../docs/project-intent.md#系統能力原-spec-4)）：獨立發現缺失義務及資料不一致，修復後再驗證。
+原 spec §4 要求的結果（見 [系統能力](../../../../project-intent.md#系統能力原-spec-4)）：獨立發現缺失義務及資料不一致，修復後再驗證。
 
 來源：gigaxfer `docs/spec.md` v0.3 §8（commit `4e9cba4`）。需求 ID 沿用原文；Scenario 依 `docs/design/traceability.md` 掛上。T 開頭的 Scenario 取自原 §19，共通執行條件見 core-guarantees 的 DG-06。
 

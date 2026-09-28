@@ -4,7 +4,7 @@
 
 維運人員需要的查詢、指標與受控操作。
 
-原 spec §4 要求的結果（見 [系統能力](../../../docs/project-intent.md#系統能力原-spec-4)）：可觀測、受控重試、暫停、恢復與故障查證。
+原 spec §4 要求的結果（見 [系統能力](../../../../project-intent.md#系統能力原-spec-4)）：可觀測、受控重試、暫停、恢復與故障查證。
 
 來源：gigaxfer `docs/spec.md` v0.3 §15、§16、§17（commit `4e9cba4`）。需求 ID 沿用原文；Scenario 依 `docs/design/traceability.md` 掛上。T 開頭的 Scenario 取自原 §19，共通執行條件見 core-guarantees 的 DG-06。
 

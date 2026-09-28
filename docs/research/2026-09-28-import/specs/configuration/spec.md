@@ -4,7 +4,7 @@
 
 版本化設定的發布、啟用與退回。
 
-原 spec §4 要求的結果（見 [系統能力](../../../docs/project-intent.md#系統能力原-spec-4)）：Versioned desired state、本地持久化與安全啟用。
+原 spec §4 要求的結果（見 [系統能力](../../../../project-intent.md#系統能力原-spec-4)）：Versioned desired state、本地持久化與安全啟用。
 
 來源：gigaxfer `docs/spec.md` v0.3 §13（commit `4e9cba4`）。需求 ID 沿用原文；Scenario 依 `docs/design/traceability.md` 掛上。T 開頭的 Scenario 取自原 §19，共通執行條件見 core-guarantees 的 DG-06。
 

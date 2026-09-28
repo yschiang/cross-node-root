@@ -14,6 +14,8 @@ last_updated_note: Lead 確認 Q1、Q2 後完成搬移
 
 依 loop-engineering 的 D56，cross-node-file-transfer 的 Project 層先開始。這份文件是 SA 第一輪：列出要沿用的來源與版本，把 gigaxfer `docs/spec.md` 拆成能力規格。Lead 已確認拆法與版本基準，內容已搬移，結果見文末。
 
+**後續（PD-09）**：拆出的 11 個能力後來改為 SA 輸入，從 `openspec/specs/` 搬到 [`2026-09-28-import/specs/`](2026-09-28-import/README.md)，只改相對連結、內容不變。本文以下提到的 `openspec/specs/` 是匯入當時的位置。
+
 gigaxfer 只讀不改。舊實作的程式、測試與 review 結果不是新實作的證據。
 
 ## 來源與版本

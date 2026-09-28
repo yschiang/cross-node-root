@@ -4,19 +4,24 @@ context: |
   Language: Traditional Chinese
   All artifacts must be written in Traditional Chinese.
   Keep OpenSpec structural headings in English.
-  Capability specs under openspec/specs/ were imported verbatim from gigaxfer docs/spec.md v0.3 (commit 4e9cba4); requirement IDs keep their original prefixes.
+  openspec/specs/ holds only implemented and accepted behaviour and is written only by archive (PD-09).
+  Requirement input imported verbatim from gigaxfer docs/spec.md v0.3 (commit 4e9cba4) lives in docs/research/2026-09-28-import/specs/; requirement IDs keep their original prefixes.
 
-# Per-artifact rules (loop-engineering D54)
+# Per-artifact rules (loop-engineering D54, D57-D59)
 rules:
   proposal:
-    - "Written by the Project Lead. Besides Why, What Changes, Capabilities and Impact, include a 「不做」 list (non-goals) and a 「待決與依賴」 section (open questions, dependencies, whether each blocks Design, owner)."
-    - "Record the human's 「可進入 Design」 confirmation in a short section: who, when, their words, and the confirmed version."
+    - "Drafted by the Project Lead Agent with the Project Lead, or with the Engineer when the Engineer prepares the feature (loop-engineering D64); the Project Lead confirms it. Besides Why, What Changes, Capabilities and Impact, include a 「不做」 list (non-goals) and a 「待決與依賴」 section (open questions, dependencies, whether each blocks Design, owner)."
+    - "Record the human's 「可進入 Design」 confirmation in a short section: who, when, their words, and the confirmed version. When one person holds both the Project Lead and Engineer roles, write instead that the confirmation is folded into the design-and-plan approval (D59)."
   specs:
     - "One capability is a set of behaviours that change together, not a component, page, or feature. Cross-feature constraints form their own capability."
     - "Requirement IDs use one prefix per capability (for example ING-01); each Scenario is an acceptance condition with its own ID (for example AC-I01). IDs are never reused and do not change on archive."
     - "Give each requirement its main scenario and the exception scenarios that matter: missing data, duplicates, timeouts, partial failure."
+    - "Bring requirements from the input in docs/research/2026-09-28-import/specs/: ADDED when openspec/specs/ does not have them yet, MODIFIED (full new text) when it does. Check the cross-feature constraints listed in docs/project-intent.md."
   design:
     - "Owned by the Implementer. Non-goals and open requirement questions stay in proposal.md; only record design goals and design questions here."
+    - "If one PR cannot deliver the change, propose splitting it into several features, each with its own change (D57)."
+  tasks:
+    - "Owned by the Implementer. Each task fits one session and needs no ticket. Commit per task (one or a few commits, each green). After each task an independent reviewer (different model, new session) reviews its commits; this does not replace G2 (D57)."
 
 # Add custom rules for specific artifacts.
 # Example:

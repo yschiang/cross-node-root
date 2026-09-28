@@ -1,10 +1,10 @@
 # Project intent：cross-node-file-transfer
 
-來源：gigaxfer `intent.md` 與 `docs/spec.md` v0.3 §1、§1.1、§4、§21.1（commit `4e9cba4`），內容原樣搬入。需求與驗收在 `openspec/specs/`。
+來源：gigaxfer `intent.md` 與 `docs/spec.md` v0.3 §1、§1.1、§4、§21.1（commit `4e9cba4`），內容原樣搬入。需求原文在 [SA 輸入](research/2026-09-28-import/README.md)，由各 Feature 的 change 帶入 spec（PD-09）。
 
 ## 需求意圖（原 intent.md）
 
-日期：2026-09-23。本文記錄需求意圖；具體契約與驗收條件由 [能力規格](../openspec/specs/) 承接。
+日期：2026-09-23。本文記錄需求意圖；具體契約與驗收條件由 [能力規格](research/2026-09-28-import/README.md) 承接。
 
 ## Problem
 
@@ -66,6 +66,17 @@
 需求來源：需求提出者的說明與 [跨 DC 資料同步框架討論](https://chatgpt.com/share/6ab2db59-0814-83ee-91b9-1af10458e1a3)。分享內容包含早期方案與 spec 草稿，具體技術契約以 repo 內適用的規格及最新設計修訂為準。
 
 章節格式參照 [The AI-Native SDLC playbook 的 intent.md 範例](https://claude.com/blog/the-ai-native-sdlc-playbook)。
+
+## 跨 Feature 的共用限制
+
+以下需求約束每一個 Feature，還沒有實作。每次 Feature SA 都要檢查這次的行為碰到哪幾條；第一個讓某條成立的 Feature 用 ADDED 把它帶進自己的 spec，之後的 Feature 用 MODIFIED 擴充（PD-09）。
+
+| 能力 | 需求 | 原文 |
+| --- | --- | --- |
+| core-guarantees | DG-01 Node Independence、DG-02 Local-First Availability、DG-03 Eventual Consistency、DG-04 No Silent Data Loss、DG-05 Operational Resilience、DG-06 End-to-End Critical Acceptance | [SA 輸入](research/2026-09-28-import/specs/core-guarantees/spec.md) |
+| service-objectives | SLO-01 SLO / Service Objectives；表中 TBD 的數值是待決，不補數字 | [SA 輸入](research/2026-09-28-import/specs/service-objectives/spec.md) |
+
+本文下面的「第一版範圍」與「第一版功能範圍外」也適用於每一個 Feature。
 
 ## 系統目的（原 spec §1）
 

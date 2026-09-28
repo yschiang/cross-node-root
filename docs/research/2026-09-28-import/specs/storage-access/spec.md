@@ -4,7 +4,7 @@
 
 Application 與同步服務共用的儲存存取邊界。
 
-原 spec §4 要求的結果（見 [系統能力](../../../docs/project-intent.md#系統能力原-spec-4)）：統一存取、完成寫入、結果查證與錯誤語意。
+原 spec §4 要求的結果（見 [系統能力](../../../../project-intent.md#系統能力原-spec-4)）：統一存取、完成寫入、結果查證與錯誤語意。
 
 來源：gigaxfer `docs/spec.md` v0.3 §5（commit `4e9cba4`）。需求 ID 沿用原文；Scenario 依 `docs/design/traceability.md` 掛上。T 開頭的 Scenario 取自原 §19，共通執行條件見 core-guarantees 的 DG-06。
 
