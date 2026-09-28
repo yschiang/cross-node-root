@@ -7,7 +7,7 @@
 #### Scenario: AC-EB-01 乾淨環境建置通過
 
 - **WHEN** 在沒有本機 Maven 套件快取的環境 clone 程式 repo，並以 Java 21 執行 `mvn -B verify`
-- **THEN** 建置成功，每個模組的測試都被執行且通過
+- **THEN** 建置成功，每個有測試原始碼的模組，其測試都被執行且通過
 
 #### Scenario: AC-EB-02 模組只有 parent 與 core
 
@@ -26,7 +26,7 @@
 
 ### Requirement: EB-02 PR 必要 checks 由 GitHub 強制
 
-程式 repo SHALL 是 public，讓 GitHub 可以強制 branch protection。程式 repo 的每個 PR SHALL 在 CI 上執行必要 checks，並只以 PR 目前 head 的結果判定。必要 checks SHALL 至少涵蓋 EB-01 的建置與測試：CI 對 PR head 執行 `mvn -B verify`，建置或測試失敗時必要 check 回報失敗。必要 check 的名稱 SHALL 記在程式 repo，並設為 `main` 的 branch protection 必要 status checks；只有在每個必要 check 都實際執行建置與測試並成功時，PR 才能 merge 進 `main`；必要 check 失敗、被取消、逾時、尚未完成、被略過（skipped）或回報 neutral 時都不能 merge，repo 管理者也不能略過。
+程式 repo SHALL 是 public，讓 GitHub 可以強制 branch protection。程式 repo 的每個 PR SHALL 在 CI 上執行必要 checks，並只以 PR 目前 head 的結果判定。必要 checks SHALL 至少包含一個建置與測試的 check：它對每個 PR 的 head 都實際執行 `mvn -B verify`，不因任何條件被略過或回報 neutral，建置或測試失敗時回報失敗。必要 check 的名稱 SHALL 記在程式 repo，並設為 `main` 的 branch protection 必要 status checks；任一必要 check 失敗、被取消、逾時或尚未完成時，PR 不能 merge 進 `main`，repo 管理者也不能略過。GitHub 把 skipped 與 neutral 視為滿足必要 check，所以建置與測試的 check 不得出現這兩種結果。
 
 #### Scenario: AC-EB-05 程式 repo 是 public
 
@@ -43,10 +43,10 @@
 - **WHEN** 任一必要 check 失敗、被取消、逾時或尚未完成，由 repo 管理者嘗試 merge 該 PR
 - **THEN** GitHub 拒絕 merge
 
-#### Scenario: AC-EB-11 必要 check 被略過或 neutral 時不能 merge
+#### Scenario: AC-EB-11 建置與測試的 check 不被略過
 
-- **WHEN** 建置與測試沒有實際執行，必要 check 回報 skipped 或 neutral，由 repo 管理者嘗試 merge 該 PR
-- **THEN** GitHub 拒絕 merge
+- **WHEN** 任何 PR 建立或推上新 commit，包括只改文件的 PR
+- **THEN** 建置與測試的 check 實際執行 `mvn -B verify`，回報成功或失敗，不回報 skipped 或 neutral
 
 #### Scenario: AC-EB-12 建置或測試失敗使必要 check 失敗
 
