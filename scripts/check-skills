@@ -5,8 +5,11 @@
 # project copy when both exist.
 set -u
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-SKILLS=(project-lead feature-to-spec research-codebase grill-with-docs grilling domain-modeling
-        test-driven-development openspec-update-change openspec-archive-change)
+SKILLS=(project-lead feature-to-spec spec-to-plan plan-to-code to-pr research-codebase
+        grill-with-docs grilling domain-modeling brainstorming writing-plans test-driven-development
+        subagent-driven-development using-git-worktrees requesting-code-review
+        verification-before-completion finishing-a-development-branch
+        openspec-update-change openspec-archive-change)
 missing=0
 for s in "${SKILLS[@]}"; do
   for d in "$REPO/.claude/skills" "$REPO/.agents/skills"; do

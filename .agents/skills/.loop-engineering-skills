@@ -1,8 +1,18 @@
-# Copied by loop-engineering setup.sh --project from commit 66044c8. Edit in loop-engineering, then re-run.
-project-lead 82058b9c3d48d30610638a01e1f3d55478e98c7e
-feature-to-spec 110c253d72ae870e9a16bd3a17fcef1426036434
-research-codebase d94f3e7d76136956ebb949b28b95223b060e959d
-grilling e830df27a66dcc1174e30debca46a3d3529b471d
-domain-modeling c1cdb806f50cdad8d0c49bcc9ae67df6be08f380
-grill-with-docs f0fc9c55c23ec267066add5469809cb393f22bd6
-test-driven-development c1ee2e7e75ce53ea1e0fdb64484d180098ef52df
+# Written by loop-engineering setup.sh --project, last copy from commit 102623f. Each line: a skill it copied and the fingerprints accepted as that copy (two only while it is being swapped). Edit skills in loop-engineering, then re-run.
+project-lead 7f23859b2a07786d169e536a49ed1f2303b9730a
+feature-to-spec 1ce90b464357fc7b9b861552390d86bfb52b6bd5
+spec-to-plan e017d30b9b8eba0172fb3bcd65774a81deea98b8
+plan-to-code 7e1be822328f435ff4dd4e150b14ff3c1bcb9635
+to-pr 3dd3736a0acf1807742a3ae81f02d25add08f2f9
+research-codebase 535457e66598706728bf456a570d9195cba66986
+grilling 1fea598c98f48682b8c264c2c6d7969205bec87f
+domain-modeling 851abf87d0a81f3da785462c97c9d9dedc360140
+grill-with-docs 99e866d8df757c35d8d907a98095c18f33009148
+brainstorming 0052de1832eee766cea753a33c83a852c62e61b5
+writing-plans 1168442a6e3abed27aa5dddb633758f7e8df1a8b
+test-driven-development 02c755e6a18fd7c22e7fc4b8cb5224331d29aa0e
+subagent-driven-development 0cb006debb16df48e6fd60bfbdc9f28f26c9c52a
+using-git-worktrees 8ada42529422141a25f3271036cfac420c1b96d3
+requesting-code-review 35f85ba139b8b0d55863843530ebe6c53910f816
+verification-before-completion 944ee5787c3ce9c36d4ee0869a1a55a299be4508
+finishing-a-development-branch d5b2f0495b9545e0b2a4b7092df535b2440708e7
