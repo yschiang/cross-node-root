@@ -14,7 +14,7 @@
 
 - **建置**：Java 21 的 Maven 多模組，只有 parent pom 與 #2 需要的 core 模組；乾淨 clone 上 `mvn -B verify` 會建置並執行測試（PD-04；研究 F6、F7、F10）。
 - **CI 必要 checks**：PR 與推上新 commit 時，對 PR 目前的 head 執行建置與測試；必要 check 的名稱記在程式 repo。
-- **工程規則**：程式 repo 自己的 `AGENTS.md`，以 `CLAUDE.md` 引用它；單獨 clone 程式 repo 時就讀得到（研究 F3、A1）。
+- **工程規則**：程式 repo 自己的 `AGENTS.md`，以 root 的 `AGENTS.md` 為底稿（Q-2），以 `CLAUDE.md` 引用它；單獨 clone 程式 repo 時就讀得到（研究 F3、A1）。
 
 root repo `cross-node-root`：只有本 change 的文件，不改 root 的 `AGENTS.md`。
 
@@ -48,7 +48,7 @@ root repo `cross-node-root`：只有本 change 的文件，不改 root 的 `AGEN
 | ID | 問題 | 是否阻擋 Design | 決策者 |
 | --- | --- | --- | --- |
 | Q-1 | ~~範圍：上面「What Changes」與「不做」~~ **已決定：照提案，工程規則放在程式 repo 自己的 `AGENTS.md`，root 只放本 change 的文件；commit 訊息檢查不加進範圍** | — | Project Lead 回答「A」（2026-09-29），選項 A 為「照提案；工程規則放進程式 repo，單獨 clone 也讀得到」，否決 B「規則只放 root」與 C「範圍加上 commit 訊息檢查」 |
-| Q-2 | 程式 repo 的 `AGENTS.md` 用哪份內容起頭：root 的版本（含 Commit 訊息規範，研究 F3）、gigaxfer 新版（F5 `b4ea97e5…`），或 PD-05 釘的舊版（`f69d669a…`） | 是：決定 EB 工程規則的內容 | Project Lead |
+| Q-2 | ~~程式 repo 的 `AGENTS.md` 用哪份內容起頭~~ **已決定：root 的版本（`AGENTS.md` blob `c93055be4c32`），只改兩處：scope 表換成程式 repo 的 Java package，刪掉「本 repo 是 root repo」的說明**。這偏離 PD-05（採 gigaxfer 工作目錄的 `AGENTS.md`）；練習只記在這裡，不改 main 的決策紀錄，正式走時要另立 PD 取代 PD-05 的這一部分 | — | Project Lead 回答「a」（2026-09-29），選項 A 為「root 的版本，改 scope 表與 root 說明兩處」，否決 B「gigaxfer 新版改三處加 scope 表」與 C「PD-05 釘的舊版」 |
 | Q-3 | ~~commit 訊息檢查（hook、CI job）屬不屬於本 Feature~~ **已決定：不屬於**（隨 Q-1 選 A 否決 C）；要做時另開 Feature 以 MODIFIED 修改 `engineering-baseline` | — | 同 Q-1 |
 | Q-4 | 程式 repo 是 private，GitHub 無法強制必要 check（研究 F2）；必要 check 是否只由流程判定 | 否：影響驗收寫法，不影響設計 | Project Lead |
 | Q-5 | 決策紀錄沒有依 loop-engineering D63 記下「確認 roadmap 並選定 #1」（研究 F12）；本練習以 Project Lead 2026-09-29 的指示視為選定 | 否 | Project Lead |
