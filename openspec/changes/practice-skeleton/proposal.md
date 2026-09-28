@@ -12,6 +12,7 @@
 
 程式 repo `cross-node-file-transfer`：
 
+- **可見度**：程式 repo 改成 public，GitHub 才能強制 branch protection（Q-4；執行見 Q-6）。
 - **建置**：Java 21 的 Maven 多模組，只有 parent pom 與 #2 需要的 core 模組；乾淨 clone 上 `mvn -B verify` 會建置並執行測試（PD-04；研究 F6、F7、F10）。
 - **CI 必要 checks**：PR 與推上新 commit 時，對 PR 目前的 head 執行建置與測試；必要 check 的名稱記在程式 repo，並由 `main` 的 branch protection 強制（Q-4）。
 - **工程規則**：程式 repo 自己的 `AGENTS.md`，以 root 的 `AGENTS.md` 為底稿（Q-2），以 `CLAUDE.md` 引用它；單獨 clone 程式 repo 時就讀得到（研究 F3、A1）。
@@ -39,7 +40,7 @@ root repo `cross-node-root`：只有本 change 的文件，不改 root 的 `AGEN
 
 ## Impact
 
-- 程式 repo：新增 `pom.xml`、core 模組、`.github/workflows/` 的 CI、`AGENTS.md`、`CLAUDE.md`、`.gitignore`；開一個 PR。
+- 程式 repo：可見度由 private 改成 public（對外公開，不容易收回；Q-6）；新增 `pom.xml`、core 模組、`.github/workflows/` 的 CI、`AGENTS.md`、`CLAUDE.md`、`.gitignore`；開一個 PR。
 - root repo：本 change 的文件；root PR 就是 `feature/practice-skeleton`。
 - 跨 Feature 的共用限制（core-guarantees、service-objectives）是產品行為，本 Feature 不碰（研究 A2）。
 
