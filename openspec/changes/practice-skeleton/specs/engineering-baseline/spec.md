@@ -38,7 +38,7 @@
 - **WHEN** PR 建立，或推上新 commit
 - **THEN** CI 對 PR 目前的 head 執行全部必要 checks，舊 head 的結果不算數
 
-#### Scenario: AC-EB-07 必要 check 沒有成功時不能 merge
+#### Scenario: AC-EB-07 必要 check 失敗、取消、逾時或未完成時不能 merge
 
 - **WHEN** 任一必要 check 失敗、被取消、逾時或尚未完成，由 repo 管理者嘗試 merge 該 PR
 - **THEN** GitHub 拒絕 merge
