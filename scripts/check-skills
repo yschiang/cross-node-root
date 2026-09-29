@@ -8,7 +8,7 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 SKILLS=(project-lead feature-to-spec spec-to-plan plan-to-code to-pr research-codebase
         grill-with-docs grilling domain-modeling brainstorming writing-plans test-driven-development
         subagent-driven-development using-git-worktrees requesting-code-review
-        verification-before-completion finishing-a-development-branch
+        verification-before-completion finishing-a-development-branch review-panel
         openspec-update-change openspec-archive-change)
 missing=0
 for s in "${SKILLS[@]}"; do
