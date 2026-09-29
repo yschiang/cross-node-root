@@ -1,9 +1,9 @@
-# Written by loop-engineering setup.sh --project, last copy from commit 102623f. Each line: a skill it copied and the fingerprints accepted as that copy (two only while it is being swapped). Edit skills in loop-engineering, then re-run.
-project-lead 7f23859b2a07786d169e536a49ed1f2303b9730a
-feature-to-spec 1ce90b464357fc7b9b861552390d86bfb52b6bd5
+# Written by loop-engineering setup.sh --project, last copy from commit 22a9de5. Each line: a skill it copied and the fingerprints accepted as that copy (two only while it is being swapped). Edit skills in loop-engineering, then re-run.
+project-lead 4a4f5b829caff3863bf37f7d33b3cfb5b1082c7c
+feature-to-spec e9e4e2a217f311d152e59812726628c0ff19cdc1
 spec-to-plan e017d30b9b8eba0172fb3bcd65774a81deea98b8
-plan-to-code 7e1be822328f435ff4dd4e150b14ff3c1bcb9635
-to-pr 3dd3736a0acf1807742a3ae81f02d25add08f2f9
+plan-to-code da3a95d4236e97ffe3f71cfe8b2ded7f658db351
+to-pr 06b222cedb3e73caac0ea8d80f5ce023fcf39115
 research-codebase 535457e66598706728bf456a570d9195cba66986
 grilling 1fea598c98f48682b8c264c2c6d7969205bec87f
 domain-modeling 851abf87d0a81f3da785462c97c9d9dedc360140
@@ -16,3 +16,4 @@ using-git-worktrees 8ada42529422141a25f3271036cfac420c1b96d3
 requesting-code-review 35f85ba139b8b0d55863843530ebe6c53910f816
 verification-before-completion 944ee5787c3ce9c36d4ee0869a1a55a299be4508
 finishing-a-development-branch d5b2f0495b9545e0b2a4b7092df535b2440708e7
+review-panel fa469fa3d8a6f910665fcf9fb401887911543a2c
